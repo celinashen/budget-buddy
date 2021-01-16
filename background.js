@@ -11,7 +11,6 @@
 var pageConditions = {
     conditions: [
       new chrome.declarativeContent.PageStateMatcher({
-        //pageUrl: { schemes: ['https://*/cart', 'http://*/cart'] } 
         pageUrl: { urlContains: "/cart" } 
       })
     ],
@@ -39,11 +38,16 @@ var pageConditions = {
   chrome.tabs.onUpdated.addListener(function
     (tabId, changeInfo, tab) {
       // read changeInfo data and do something with it (like read the url)
-      const condition = changeInfo.url.includes('/cart')
+      let condition = changeInfo.url.includes('/cart')
       console.log(`condition=${condition}`)  
   
       if (condition) {
-         window.open("./popup/popup.html", "extension_popup", "width=300,height=400,status=no,scrollbars=yes,resizable=no");
+         window.open("./popup/popup.html", "extension_popup", "width=700,height=640,status=no,scrollbars=yes,resizable=yes");
+
+        
+
+
+
       }
     }
   );
