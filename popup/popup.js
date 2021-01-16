@@ -1,3 +1,21 @@
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  var checkPageButton = document.getElementById('clicked');
+  checkPageButton.addEventListener('click', function(){
+
+    chrome.tabs.getSelected(null, function(tab){
+      alert("hello there");
+    });
+
+  },false);
+}, false);
+
+
+
+
+/**
 var saveNote = document.querySelector('#save-note');
 var deleteNotes = document.querySelector('#delete-notes');
 var notesField = document.querySelector('#note-value');
@@ -64,4 +82,4 @@ saveNote.onclick = function () {
     });
   });
   location.reload();
-};
+};*/

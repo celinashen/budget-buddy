@@ -1,4 +1,4 @@
-function clear_notes() {
+/**function clear_notes() {
     document.querySelectorAll('.htn-sticky-note-class').forEach(e => e.remove());
     noteCount = 0;
   }
@@ -65,6 +65,6 @@ function clear_notes() {
   }
   
   var noteCount = 0;
-  init_notes();
+  init_notes();*/
   
   // TODO: Add Message Event Listener to Prompt Sticky Note Functions
