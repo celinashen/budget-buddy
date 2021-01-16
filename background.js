@@ -3,7 +3,7 @@
 var pageConditions = {
     conditions: [
       new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: { schemes: ['https','http'] }
+        pageUrl: { schemes: ['https','http'] } //probably something along the lines of {baseURL}/cart
       })
     ],
     actions: [new chrome.declarativeContent.ShowPageAction()]
