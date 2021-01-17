@@ -86,30 +86,12 @@ var pageConditions = {
               console.log(result.budget);
 
               if(newTotal > totalBudget){
-                window.open("./popup/popup.html", "extension_popup", "width=700,height=640,status=no,scrollbars=yes,resizable=yes");
+                window.open("./popup/popup.html", "extension_popup", "width=500,height=450,status=no,scrollbars=yes,resizable=yes");
               }
             });
-
-            // console.log(result.budget);
-
-            // console.log(totalBudget);
-
             
           }
         )
-
-        //console.log(newTotal);
-
-        //const hardBudget = 25.00;
-
-
-/**
-        if (newTotal > hardBudget){
-          console.log("hello");
-          window.open("./popup/popup.html", "extension_popup", "width=700,height=640,status=no,scrollbars=yes,resizable=yes");
-        }*/
-
-
       }
     }
   );
