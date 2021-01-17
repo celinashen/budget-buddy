@@ -35,8 +35,11 @@ var pageConditions = {
       window.open("./popup/popup.html", "extension_popup", "width=300,height=400,status=no,scrollbars=yes,resizable=no");
   }**/
 
-  
- 
+  /**
+  chrome.webNavigation.onHistoryStateUpdated.addListener(details => {
+    const url = detail.url
+    console.log(url)
+  });**/
 
 
   chrome.tabs.onUpdated.addListener(function
@@ -44,7 +47,7 @@ var pageConditions = {
       // read changeInfo data and do something with it (like read the url)
       
 
-      let condition = false;
+      var condition = false;
 
       if (tab.url){
         condition = tab.url.includes('/cart')
@@ -56,19 +59,41 @@ var pageConditions = {
   
       
 
-      if (condition) {
+      if (condition && changeInfo.status == 'complete') {
         console.log('cart found in url');
         
-        // var search = document.querySelector("a-size-medium a-color-base sc-price sc-white-space-nowrap");
-        // console.log(search)
-
-        window.open("./popup/popup.html", "extension_popup", "width=700,height=640,status=no,scrollbars=yes,resizable=yes");
-        
-        condition = false;
-
         chrome.tabs.executeScript({
           file: 'contentScript.js'
         });
+
+
+        //console.log(condition);
+
+        chrome.runtime.onMessage.addListener(
+          function(request, sender, sendResponse){
+            console.log(request.amount)
+            var newTotal = request.amount;
+            console.log(newTotal);
+
+            if(newTotal > 10.00){
+              window.open("./popup/popup.html", "extension_popup", "width=700,height=640,status=no,scrollbars=yes,resizable=yes");
+            }
+          }
+
+          
+          
+        )
+
+        console.log(newTotal);
+
+        const hardBudget = 25.00;
+
+
+/**
+        if (newTotal > hardBudget){
+          console.log("hello");
+          window.open("./popup/popup.html", "extension_popup", "width=700,height=640,status=no,scrollbars=yes,resizable=yes");
+        }*/
 
 
       }
