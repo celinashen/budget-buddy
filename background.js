@@ -1,10 +1,3 @@
-// Background.js
-
-// function showDisplay(function()){
-//   chrome.tabs.getSelected(null, function(tab){
-//     alert("hello there");
-//   }
-// }
 
 
 
