@@ -1,0 +1,23 @@
+{
+  "name": "Crews Control",
+  "version": "0.0.1",
+  "description": "no crews or you lose :(",
+  "manifest_version": 2,
+  "background" : {
+    
+    "scripts" : ["background.js"],
+    "persistent" : false
+  },
+  "page_action": {
+    "default_icon": "coolcrews.png", 
+    "default_popup": "popup/popup-extension.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/results?search_query=hack+the+north&page&utm_source=opensearch"],
+      "js": ["contentScript.js"]
+    }
+  ],
+
+  "permissions": ["tabs", "activeTab", "declarativeContent", "storage","http://*/", "https://*/"]
+}
