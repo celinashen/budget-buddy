@@ -8,6 +8,11 @@
 
 
 
+chrome.storage.local.set({budget: 0.00}, function(){
+});
+
+
+
 var pageConditions = {
     conditions: [
       new chrome.declarativeContent.PageStateMatcher({
@@ -67,7 +72,6 @@ var pageConditions = {
         });
 
 
-        //console.log(condition);
 
         chrome.runtime.onMessage.addListener(
           function(request, sender, sendResponse){
@@ -75,18 +79,28 @@ var pageConditions = {
             var newTotal = request.amount;
             console.log(newTotal);
 
-            if(newTotal > 10.00){
-              window.open("./popup/popup.html", "extension_popup", "width=700,height=640,status=no,scrollbars=yes,resizable=yes");
-            }
-          }
+            let totalBudget = 0.00;
 
-          
-          
+            chrome.storage.local.get(['budget'], function(result){
+              totalBudget = result.budget;
+              console.log(result.budget);
+
+              if(newTotal > totalBudget){
+                window.open("./popup/popup.html", "extension_popup", "width=700,height=640,status=no,scrollbars=yes,resizable=yes");
+              }
+            });
+
+            // console.log(result.budget);
+
+            // console.log(totalBudget);
+
+            
+          }
         )
 
-        console.log(newTotal);
+        //console.log(newTotal);
 
-        const hardBudget = 25.00;
+        //const hardBudget = 25.00;
 
 
 /**

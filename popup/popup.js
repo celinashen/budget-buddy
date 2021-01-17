@@ -1,6 +1,6 @@
 
 
-
+/**
 document.addEventListener('DOMContentLoaded', function(){
   var checkPageButton = document.getElementById('clicked');
   checkPageButton.addEventListener('click', function(){
@@ -10,17 +10,17 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
   },false);
-}, false);
+}, false);*/
 
 
 
 
-/**
+
 var saveNote = document.querySelector('#save-note');
 var deleteNotes = document.querySelector('#delete-notes');
 var notesField = document.querySelector('#note-value');
 
-
+/**
 // Populate Notes From Page
 chrome.tabs.query({
   active: true,
@@ -60,10 +60,22 @@ deleteNotes.onclick = function () {
     });
   });
 }
+**/
+
 
 // Save Note
 saveNote.onclick = function () {
-  chrome.tabs.query({
+
+  let userBudget = notesField.value;
+
+  chrome.storage.local.set({budget: userBudget}, function(){
+    alert("Your budget has been updated to: " + userBudget);
+  });
+
+  
+
+  //console.log(notesField.value);
+  /**chrome.tabs.query({
     active: true,
     currentWindow: true
   }, function (tabs) {
@@ -81,5 +93,5 @@ saveNote.onclick = function () {
       chrome.storage.local.set(notes);
     });
   });
-  location.reload();
-};*/
+  location.reload();*/
+};
