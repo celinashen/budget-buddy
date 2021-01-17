@@ -11,6 +11,12 @@
   "page_action": {
     "default_popup": "popup/popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/results?search_query=hack+the+north&page&utm_source=opensearch"],
+      "js": ["contentScript.js"]
+    }
+  ],
 
-  "permissions": ["tabs", "activeTab", "declarativeContent", "storage"]
+  "permissions": ["tabs", "activeTab", "declarativeContent", "storage","http://*/", "https://*/"]
 }
