@@ -71,8 +71,15 @@ saveNote.onclick = function () {
   chrome.storage.local.set({budget: userBudget}, function(){
     alert("Your budget has been updated to: " + userBudget);
   });
+};
 
-  
+
+
+// var checkPageButton = document.getElementById('clicked');
+// checkPageButton.addEventListener('click', function(){
+
+// document.getElementById("save-note").addEventListener("click",)
+
 
   //console.log(notesField.value);
   /**chrome.tabs.query({
@@ -94,4 +101,3 @@ saveNote.onclick = function () {
     });
   });
   location.reload();*/
-};
